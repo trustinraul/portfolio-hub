@@ -37,7 +37,7 @@ export function Nav() {
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
         <a href="#top" className="flex items-baseline gap-2">
           <span className="font-display text-lg text-text">raúl calvo</span>
-          <span className="font-mono text-[11px] text-accent">// builder</span>
+          <span className="font-mono text-[11px] text-accent">{'// builder'}</span>
         </a>
         <ul className="hidden gap-6 font-mono text-xs text-text-muted sm:flex">
           {navItems.map((n) => (
