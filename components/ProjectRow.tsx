@@ -12,13 +12,13 @@ export function ProjectRow({ project, index }: { project: Project; index: number
   const imageRight = index % 2 === 1
 
   return (
-    <div className="grid items-center gap-8 md:grid-cols-2 md:gap-14">
+    <div className="group grid items-center gap-8 md:grid-cols-2 md:gap-14">
       <motion.a
         href={project.demoUrl}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Abrir demo de ${project.name}`}
-        className={`group relative block aspect-[16/10] overflow-hidden rounded-lg bg-surface ${imageRight ? 'md:order-2' : ''}`}
+        className={`relative block aspect-[16/10] overflow-hidden rounded-lg bg-surface ${imageRight ? 'md:order-2' : ''}`}
         initial={reduce ? { opacity: 0 } : { opacity: 0, clipPath: 'inset(0 0 100% 0)' }}
         whileInView={reduce ? { opacity: 1 } : { opacity: 1, clipPath: 'inset(0 0 0% 0)' }}
         viewport={{ once: true, margin: '-80px' }}
@@ -29,16 +29,17 @@ export function ProjectRow({ project, index }: { project: Project; index: number
           alt={`Captura de ${project.name}`}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
+          priority={index === 0}
           className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
         />
       </motion.a>
 
       <motion.div
         className={imageRight ? 'md:order-1' : ''}
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={reduce ? { opacity: 0 } : { opacity: 0, y: 24 }}
+        whileInView={reduce ? { opacity: 1 } : { opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.7, delay: 0.12, ease: EASE }}
+        transition={{ duration: 0.7, delay: reduce ? 0 : 0.12, ease: EASE }}
       >
         <span className="block font-mono text-[clamp(3rem,8vw,6.5rem)] font-medium leading-none text-accent/30 transition-colors group-hover:text-accent">
           {n}
@@ -53,8 +54,8 @@ export function ProjectRow({ project, index }: { project: Project; index: number
           ))}
         </div>
         <div className="mt-6 flex gap-6 font-mono text-sm">
-          <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="text-accent underline-offset-4 hover:underline">demo ↗</a>
-          <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="text-text-muted underline-offset-4 hover:text-text hover:underline">código ↗</a>
+          <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="text-accent underline-offset-4 hover:underline">demo <span aria-hidden="true">↗</span></a>
+          <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="text-text-muted underline-offset-4 hover:text-text hover:underline">código <span aria-hidden="true">↗</span></a>
         </div>
       </motion.div>
     </div>

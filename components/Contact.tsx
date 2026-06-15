@@ -15,9 +15,9 @@ export function Contact() {
           <a href={`mailto:${site.email}`} className="rounded-md bg-text px-5 py-2.5 text-bg transition-opacity hover:opacity-90">
             {site.email}
           </a>
-          <a href={site.github} target="_blank" rel="noopener noreferrer" className="text-text-muted underline-offset-4 hover:text-text hover:underline">GitHub ↗</a>
-          <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className="text-text-muted underline-offset-4 hover:text-text hover:underline">LinkedIn ↗</a>
-          <a href={site.cv} className="text-accent underline-offset-4 hover:underline">Descargar CV ↓</a>
+          <a href={site.github} target="_blank" rel="noopener noreferrer" className="text-text-muted underline-offset-4 hover:text-text hover:underline">GitHub <span aria-hidden="true">↗</span></a>
+          <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className="text-text-muted underline-offset-4 hover:text-text hover:underline">LinkedIn <span aria-hidden="true">↗</span></a>
+          <a href={site.cv} className="text-accent underline-offset-4 hover:underline">Descargar CV <span aria-hidden="true">↓</span></a>
         </div>
       </Reveal>
     </section>
