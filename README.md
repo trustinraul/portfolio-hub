@@ -62,7 +62,7 @@ npm test         # data-integrity tests
 
 ## Notes
 
-- `public/cv-raul-calvo.pdf` is a placeholder PDF until the real CV is provided.
+- The CV is available in two languages: `public/cv-raul-calvo-es.pdf` (Spanish, primary) and `public/cv-raul-calvo-en.pdf` (English), linked from the contact section.
 - Project thumbnails in `public/projects/` are live screenshots of the four deployed demos.
 
 ## Adding a project

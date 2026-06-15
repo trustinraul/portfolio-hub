@@ -20,7 +20,8 @@ export const site = {
   github: 'https://github.com/trustinraul',
   githubHandle: 'trustinraul',
   linkedin: 'https://www.linkedin.com/in/raul-calvo-sanz-678993416/',
-  cv: '/cv-raul-calvo.pdf',
+  cvEs: '/cv-raul-calvo-es.pdf',
+  cvEn: '/cv-raul-calvo-en.pdf',
   location: 'Valladolid',
   age: 18,
 } as const

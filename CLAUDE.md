@@ -84,7 +84,7 @@ Identidad conservada de Ingegno (dark editorial), pero endurecida contra AI-slop
 - **El sandbox no tiene credenciales de GitHub.** Los `git commit` van locales; **crear el repo `trustinraul/portfolio-hub`, el push y conectar Vercel los hace Raúl a mano** (Task 16 del plan).
 - PowerShell, si salta el lock: `Remove-Item .git\index.lock -Force` (no `rm -f`).
 - URL objetivo: `raulcalvo.vercel.app`. `metadataBase` desde `NEXT_PUBLIC_SITE_URL` para migrar a dominio propio en una línea.
-- `public/cv-raul-calvo.pdf` es un **placeholder** hasta que Raúl entregue el PDF real.
+- CV real en dos idiomas: `public/cv-raul-calvo-es.pdf` (primario, UI español) y `public/cv-raul-calvo-en.pdf`. Enlazados desde Contact (`site.cvEs` / `site.cvEn`) y el nav móvil (ES).
 
 ---
 

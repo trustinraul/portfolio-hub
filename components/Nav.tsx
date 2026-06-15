@@ -52,7 +52,7 @@ export function Nav() {
             </li>
           ))}
         </ul>
-        <a href={site.cv} className="font-mono text-xs text-accent sm:hidden">CV</a>
+        <a href={site.cvEs} className="font-mono text-xs text-accent sm:hidden">CV</a>
       </nav>
     </header>
   )

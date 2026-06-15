@@ -17,7 +17,8 @@ export function Contact() {
           </a>
           <a href={site.github} target="_blank" rel="noopener noreferrer" className="text-text-muted underline-offset-4 hover:text-text hover:underline">GitHub <span aria-hidden="true">↗</span></a>
           <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className="text-text-muted underline-offset-4 hover:text-text hover:underline">LinkedIn <span aria-hidden="true">↗</span></a>
-          <a href={site.cv} className="text-accent underline-offset-4 hover:underline">Descargar CV <span aria-hidden="true">↓</span></a>
+          <a href={site.cvEs} download className="text-accent underline-offset-4 hover:underline">CV español <span aria-hidden="true">↓</span></a>
+          <a href={site.cvEn} download className="text-accent underline-offset-4 hover:underline">CV inglés <span aria-hidden="true">↓</span></a>
         </div>
       </Reveal>
     </section>
