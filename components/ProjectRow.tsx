@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { motion, useReducedMotion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 import type { Project } from '@/content/projects'
 
 const EASE = [0.16, 1, 0.3, 1] as const
@@ -11,17 +12,43 @@ export function ProjectRow({ project, index }: { project: Project; index: number
   const n = String(index + 1).padStart(2, '0')
   const imageRight = index % 2 === 1
 
+  // Reveal driven by a direct getBoundingClientRect check on scroll instead of
+  // framer's whileInView. The IntersectionObserver behind whileInView fired
+  // unreliably for these rows in stacked/narrow layouts (the project images, the
+  // page's protagonist content, shipped blank on mobile). A plain rect check is
+  // exact and fires on every viewport. Visibility never stays gated on it: the
+  // <noscript> fallback shows everything when JS is off.
+  const ref = useRef<HTMLDivElement>(null)
+  const [reveal, setReveal] = useState(false)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const check = () => {
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
+        setReveal(true)
+        window.removeEventListener('scroll', check)
+      }
+    }
+    check()
+    window.addEventListener('scroll', check, { passive: true })
+    return () => window.removeEventListener('scroll', check)
+  }, [])
+
+  const hiddenImage = reduce ? { opacity: 0 } : { opacity: 0, clipPath: 'inset(0 0 100% 0)' }
+  const shownImage = { opacity: 1, clipPath: 'inset(0 0 0% 0)' }
+  const hiddenText = reduce ? { opacity: 0 } : { opacity: 0, y: 24 }
+  const shownText = { opacity: 1, y: 0 }
+
   return (
-    <div className="group grid items-center gap-8 md:grid-cols-2 md:gap-14">
+    <div ref={ref} className="group grid items-center gap-8 md:grid-cols-2 md:gap-14">
       <motion.a
         href={project.demoUrl}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Abrir demo de ${project.name}`}
         className={`relative block aspect-[16/10] overflow-hidden rounded-lg bg-surface ${imageRight ? 'md:order-2' : ''}`}
-        initial={reduce ? { opacity: 0 } : { opacity: 0, clipPath: 'inset(0 0 100% 0)' }}
-        whileInView={{ opacity: 1, clipPath: 'inset(0 0 0% 0)' }}
-        viewport={{ once: true, margin: '-80px' }}
+        initial={hiddenImage}
+        animate={reveal ? shownImage : hiddenImage}
         transition={{ duration: reduce ? 0 : 0.8, ease: EASE }}
       >
         <Image
@@ -36,9 +63,8 @@ export function ProjectRow({ project, index }: { project: Project; index: number
 
       <motion.div
         className={imageRight ? 'md:order-1' : ''}
-        initial={reduce ? { opacity: 0 } : { opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-80px' }}
+        initial={hiddenText}
+        animate={reveal ? shownText : hiddenText}
         transition={{ duration: reduce ? 0 : 0.7, delay: reduce ? 0 : 0.12, ease: EASE }}
       >
         <span className="block font-mono text-[clamp(3rem,8vw,6.5rem)] font-medium leading-none text-accent/30 transition-colors group-hover:text-accent">
