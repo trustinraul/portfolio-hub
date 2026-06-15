@@ -1,7 +1,21 @@
+const FALLBACK_URL = 'https://raulcalvo.vercel.app'
+
+// Falls back if NEXT_PUBLIC_SITE_URL is absent OR malformed, so a bad env var
+// never throws when it reaches `new URL(site.url)` in the layout metadata.
+function resolveSiteUrl(): string {
+  const raw = process.env.NEXT_PUBLIC_SITE_URL
+  if (!raw) return FALLBACK_URL
+  try {
+    return new URL(raw).origin
+  } catch {
+    return FALLBACK_URL
+  }
+}
+
 export const site = {
   name: 'Raúl Calvo',
   tagline: 'Web developer & builder',
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://raulcalvo.vercel.app',
+  url: resolveSiteUrl(),
   email: 'rcalvosanz@gmail.com',
   github: 'https://github.com/trustinraul',
   githubHandle: 'trustinraul',

@@ -7,7 +7,7 @@
   --color-border: rgba(255, 255, 255, 0.07);
   --color-text: #f2ede3;
   --color-text-muted: #a8a296;
-  --color-text-faint: #6f6a60;
+  --color-text-faint: #83806f;
   --color-accent: #c8a35b;
 }
 
@@ -43,6 +43,7 @@
     border-radius: 2px;
   }
   @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
     * { animation: none !important; transition: none !important; }
   }
 }

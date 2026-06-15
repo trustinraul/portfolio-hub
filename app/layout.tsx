@@ -30,6 +30,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className={`${ebGaramond.variable} ${barlow.variable} ${jetbrainsMono.variable}`}>
+      <head>
+        {/* Progressive enhancement: when JS is off, framer-motion never runs,
+            so its server-rendered opacity/transform/clip-path initial states
+            would leave the reveal sections invisible. Force everything visible. */}
+        <noscript>
+          <style>{`* { opacity: 1 !important; transform: none !important; clip-path: none !important; }`}</style>
+        </noscript>
+      </head>
       <body>{children}</body>
     </html>
   )
