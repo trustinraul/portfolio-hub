@@ -16,7 +16,7 @@ export default function Og() {
           fontFamily: 'serif',
         }}
       >
-        <div style={{ fontSize: 28, color: '#c8a35b', letterSpacing: 2 }}>// builder · {site.location.toLowerCase()}</div>
+        <div style={{ fontSize: 28, color: '#c8a35b', letterSpacing: 2 }}>{'// builder · '}{site.location.toLowerCase()}</div>
         <div style={{ fontSize: 88, marginTop: 24, lineHeight: 1.05 }}>Construyo cosas<br />para internet.</div>
         <div style={{ fontSize: 30, marginTop: 32, color: '#a8a296' }}>{site.name} · 4 proyectos en producción</div>
       </div>
