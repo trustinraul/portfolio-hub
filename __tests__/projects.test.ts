@@ -24,4 +24,10 @@ describe('projects data', () => {
       expect(p.tags.length).toBeGreaterThan(0)
     }
   })
+
+  it('every project has a non-empty build duration', () => {
+    for (const p of projects) {
+      expect(p.duration.trim().length).toBeGreaterThan(0)
+    }
+  })
 })

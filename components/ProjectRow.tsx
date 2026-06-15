@@ -71,6 +71,7 @@ export function ProjectRow({ project, index }: { project: Project; index: number
           {n}
         </span>
         <h3 className="mt-2 font-display text-4xl tracking-[-0.01em] text-text sm:text-5xl">{project.name}</h3>
+        <p className="mt-2 font-mono text-xs text-text-muted">Construido en {project.duration}</p>
         <p className="mt-4 max-w-md text-base leading-relaxed text-pretty text-text-muted">{project.pitch}</p>
         <div className="mt-5 flex flex-wrap gap-2">
           {project.tags.map((t) => (

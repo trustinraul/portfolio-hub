@@ -7,6 +7,7 @@ export interface Project {
   repoUrl: string
   thumbnail: string
   accent: string
+  duration: string
 }
 
 export const projects: Project[] = [
@@ -19,6 +20,7 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/trustinraul/p1-kombu',
     thumbnail: '/projects/kombu.png',
     accent: '#c9a84c',
+    duration: '4-5 días',
   },
   {
     slug: 'fortuna',
@@ -29,6 +31,7 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/trustinraul/p2-fortuna',
     thumbnail: '/projects/fortuna.png',
     accent: '#e8dfc8',
+    duration: '7 días',
   },
   {
     slug: 'archon',
@@ -39,6 +42,7 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/trustinraul/p3-archon',
     thumbnail: '/projects/archon.png',
     accent: '#5dcaa5',
+    duration: '10 días',
   },
   {
     slug: 'ingegno',
@@ -49,5 +53,6 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/trustinraul/p4-ingegno',
     thumbnail: '/projects/ingegno.png',
     accent: '#85b7eb',
+    duration: '3-4 semanas',
   },
 ]
