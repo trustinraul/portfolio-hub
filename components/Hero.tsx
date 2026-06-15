@@ -18,9 +18,9 @@ export function Hero() {
           <span key={i} className="inline-block overflow-hidden align-bottom">
             <motion.span
               className="inline-block"
-              initial={reduce ? { opacity: 0 } : { y: '110%' }}
-              animate={reduce ? { opacity: 1 } : { y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 + i * 0.06, ease: EASE }}
+              initial={reduce ? { opacity: 0, y: 0 } : { opacity: 1, y: '110%' }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: reduce ? 0 : 0.7, delay: reduce ? 0 : 0.1 + i * 0.06, ease: EASE }}
             >
               {w}&nbsp;
             </motion.span>
@@ -30,9 +30,9 @@ export function Hero() {
 
       <motion.p
         className="mb-8 max-w-xl text-lg leading-relaxed text-pretty text-text-muted"
-        initial={{ opacity: 0, y: 12 }}
+        initial={reduce ? { opacity: 0 } : { opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.1 + words.length * 0.06, ease: EASE }}
+        transition={{ duration: reduce ? 0 : 0.6, delay: reduce ? 0 : 0.1 + words.length * 0.06, ease: EASE }}
       >
         Tengo {site.age} años y en dos meses pasé de no saber HTML a desplegar cuatro
         proyectos reales: una landing, una web de reservas, un CRM con login y un SaaS
@@ -43,7 +43,7 @@ export function Hero() {
         className="mb-14 flex flex-wrap items-center gap-5"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.25 + words.length * 0.06 }}
+        transition={{ duration: reduce ? 0 : 0.6, delay: reduce ? 0 : 0.25 + words.length * 0.06 }}
       >
         <a href="#trabajo" className="rounded-md bg-text px-5 py-2.5 text-sm text-bg transition-opacity hover:opacity-90">
           Ver el trabajo

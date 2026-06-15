@@ -20,9 +20,9 @@ export function ProjectRow({ project, index }: { project: Project; index: number
         aria-label={`Abrir demo de ${project.name}`}
         className={`relative block aspect-[16/10] overflow-hidden rounded-lg bg-surface ${imageRight ? 'md:order-2' : ''}`}
         initial={reduce ? { opacity: 0 } : { opacity: 0, clipPath: 'inset(0 0 100% 0)' }}
-        whileInView={reduce ? { opacity: 1 } : { opacity: 1, clipPath: 'inset(0 0 0% 0)' }}
+        whileInView={{ opacity: 1, clipPath: 'inset(0 0 0% 0)' }}
         viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.8, ease: EASE }}
+        transition={{ duration: reduce ? 0 : 0.8, ease: EASE }}
       >
         <Image
           src={project.thumbnail}
@@ -37,9 +37,9 @@ export function ProjectRow({ project, index }: { project: Project; index: number
       <motion.div
         className={imageRight ? 'md:order-1' : ''}
         initial={reduce ? { opacity: 0 } : { opacity: 0, y: 24 }}
-        whileInView={reduce ? { opacity: 1 } : { opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.7, delay: reduce ? 0 : 0.12, ease: EASE }}
+        transition={{ duration: reduce ? 0 : 0.7, delay: reduce ? 0 : 0.12, ease: EASE }}
       >
         <span className="block font-mono text-[clamp(3rem,8vw,6.5rem)] font-medium leading-none text-accent/30 transition-colors group-hover:text-accent">
           {n}

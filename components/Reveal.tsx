@@ -28,17 +28,14 @@ export function Reveal({
   className?: string
 }) {
   const reduce = useReducedMotion()
-  const variants: Variants = reduce
-    ? { hidden: { opacity: 0 }, show: { opacity: 1 } }
-    : map[variant]
   return (
     <motion.div
       className={className}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: '-80px' }}
-      variants={variants}
-      transition={{ duration: 0.7, delay, ease: EASE }}
+      variants={map[variant]}
+      transition={{ duration: reduce ? 0 : 0.7, delay: reduce ? 0 : delay, ease: EASE }}
     >
       {children}
     </motion.div>
