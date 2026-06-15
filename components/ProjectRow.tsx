@@ -67,7 +67,7 @@ export function ProjectRow({ project, index }: { project: Project; index: number
         animate={reveal ? shownText : hiddenText}
         transition={{ duration: reduce ? 0 : 0.7, delay: reduce ? 0 : 0.12, ease: EASE }}
       >
-        <span className="block font-mono text-[clamp(3rem,8vw,6.5rem)] font-medium leading-none text-accent/30 transition-colors group-hover:text-accent">
+        <span className="block font-mono text-[clamp(3rem,8vw,6.5rem)] font-medium leading-none text-accent/40 transition-colors group-hover:text-accent">
           {n}
         </span>
         <h3 className="mt-2 font-display text-4xl tracking-[-0.01em] text-text sm:text-5xl">{project.name}</h3>
