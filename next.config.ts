@@ -4,9 +4,14 @@ import type { NextConfig } from "next";
 // styles and Next's hydration scripts on a statically generated site (a strict
 // nonce-based policy would force every page to be dynamic via middleware).
 // data: is needed for the grain SVG used as a CSS background-image.
+// 'unsafe-eval' is added in development only: React's dev runtime uses eval()
+// for debugging (callstack reconstruction); production never does, so the
+// shipped policy stays strict.
+const isDev = process.env.NODE_ENV === "development";
+
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data:",
   "font-src 'self'",
