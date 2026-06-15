@@ -42,7 +42,11 @@ export function Nav() {
         <ul className="hidden gap-6 font-mono text-xs text-text-muted sm:flex">
           {navItems.map((n) => (
             <li key={n.id}>
-              <a href={`#${n.id}`} className={`transition-colors hover:text-text ${active === n.id ? 'text-text' : ''}`}>
+              <a
+                href={`#${n.id}`}
+                aria-current={active === n.id ? 'page' : undefined}
+                className={`transition-colors hover:text-text ${active === n.id ? 'text-text' : ''}`}
+              >
                 {n.label}
               </a>
             </li>

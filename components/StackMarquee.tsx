@@ -9,16 +9,10 @@ export function StackMarquee() {
       <div className="flex w-max animate-[marquee_28s_linear_infinite] gap-6 font-mono text-xs text-text-faint">
         {items.map((t, i) => (
           <span key={i} className="flex items-center gap-6 whitespace-nowrap">
-            {t} <span className="text-accent">✦</span>
+            {t} <span className="text-accent" aria-hidden="true">✦</span>
           </span>
         ))}
       </div>
-      <style jsx>{`
-        @keyframes marquee {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
-      `}</style>
     </div>
   )
 }
