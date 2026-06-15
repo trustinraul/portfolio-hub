@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Hub
 
-## Getting Started
+The entry point to Raúl Calvo's portfolio: a static, single-page site that frames four deployed web projects, tells the story behind them, and centralizes contact. Built to read "this person ships real products" in about 30 seconds.
 
-First, run the development server:
+**Live:** [raulcalvo.vercel.app](https://raulcalvo.vercel.app)
+
+![Portfolio hub hero](_resources/hero-readme.png)
+
+## What it is
+
+A dark, editorial one-pager. Four real projects are presented as an asymmetric editorial index (large gold numerals, full-size real screenshots, alternating alignment) rather than a uniform card grid. Motion is varied per section (choreographed word reveal in the hero, line reveals in the about section, clip-path image wipes in the work index) and fully respects `prefers-reduced-motion`.
+
+The four projects it aggregates:
+
+| # | Project | What it is | Demo | Code |
+|---|---------|------------|------|------|
+| 01 | Kōmbu | Dark-premium landing for an author Japanese restaurant in Madrid | [demo](https://p1-kombu.vercel.app) | [repo](https://github.com/trustinraul/p1-kombu) |
+| 02 | Fortuna | Tattoo studio with real-time bookings and an admin panel | [demo](https://p2-fortuna.vercel.app) | [repo](https://github.com/trustinraul/p2-fortuna) |
+| 03 | Archon | Full-stack CRM for freelancers: clients, projects, tasks, invoices, with auth + RLS | [demo](https://p3-archon.vercel.app) | [repo](https://github.com/trustinraul/p3-archon) |
+| 04 | Ingegno | Multi-tenant SaaS: a premium public profile for polymaths and builders | [demo](https://p4-ingegno.vercel.app) | [repo](https://github.com/trustinraul/p4-ingegno) |
+
+## Stack
+
+- **Framework:** Next.js 16 (App Router), 100% static (SSG)
+- **UI:** React 19 + Tailwind CSS v4 (`@theme` tokens)
+- **Motion:** Framer Motion v12
+- **Fonts:** EB Garamond (display) + Barlow (body) + JetBrains Mono (labels), via `next/font/google`
+- **Tests:** Jest + ts-jest (node env, data-integrity only)
+- **Deploy:** Vercel
+
+No database, no backend, no auth. Contact is a direct `mailto:`.
+
+## Features
+
+- Asymmetric editorial work index with real project screenshots and per-row `demo` / `código` links
+- Sticky nav with scroll-spy
+- Choreographed, section-varied motion with full reduced-motion support
+- Accessible: skip-to-content link, visible focus rings, `aria-current` nav state, descriptive image labels
+- SEO: per-route OpenGraph image (`summary_large_image`), `metadataBase` driven by an env var for a one-line domain switch
+
+## Local development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Other scripts:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build    # production build (SSG)
+npm run start    # serve the production build
+npm run lint     # eslint
+npm test         # data-integrity tests
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment variables
 
-## Learn More
+| Variable | Purpose | Default |
+|----------|---------|---------|
+| `NEXT_PUBLIC_SITE_URL` | Canonical site URL for `metadataBase` and OpenGraph. **Must be a fully-qualified URL with protocol** (e.g. `https://raulcalvo.vercel.app`). | `https://raulcalvo.vercel.app` |
 
-To learn more about Next.js, take a look at the following resources:
+## Notes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `public/cv-raul-calvo.pdf` is a placeholder PDF until the real CV is provided.
+- Project thumbnails in `public/projects/` are live screenshots of the four deployed demos.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Adding a project
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Append an object to the `projects` array in [content/projects.ts](content/projects.ts). The work index renders the list in order; no JSX changes needed.
