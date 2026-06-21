@@ -6,7 +6,6 @@ export interface Project {
   demoUrl: string
   repoUrl: string
   thumbnail: string
-  accent: string
   duration: string
 }
 
@@ -19,7 +18,6 @@ export const projects: Project[] = [
     demoUrl: 'https://p1-kombu.vercel.app',
     repoUrl: 'https://github.com/trustinraul/p1-kombu',
     thumbnail: '/projects/kombu.png',
-    accent: '#c9a84c',
     duration: '4-5 días',
   },
   {
@@ -30,7 +28,6 @@ export const projects: Project[] = [
     demoUrl: 'https://p2-fortuna.vercel.app',
     repoUrl: 'https://github.com/trustinraul/p2-fortuna',
     thumbnail: '/projects/fortuna.png',
-    accent: '#e8dfc8',
     duration: '7 días',
   },
   {
@@ -41,7 +38,6 @@ export const projects: Project[] = [
     demoUrl: 'https://p3-archon.vercel.app',
     repoUrl: 'https://github.com/trustinraul/p3-archon',
     thumbnail: '/projects/archon.png',
-    accent: '#5dcaa5',
     duration: '10 días',
   },
   {
@@ -52,7 +48,6 @@ export const projects: Project[] = [
     demoUrl: 'https://p4-ingegno.vercel.app',
     repoUrl: 'https://github.com/trustinraul/p4-ingegno',
     thumbnail: '/projects/ingegno.png',
-    accent: '#85b7eb',
     duration: '3-4 semanas',
   },
 ]
