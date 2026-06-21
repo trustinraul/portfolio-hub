@@ -222,7 +222,7 @@ export const site = {
   name: 'Raúl Calvo',
   tagline: 'Web developer & builder',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://raulcalvo.vercel.app',
-  email: 'rcalvosanz@gmail.com',
+  email: 'raul.webdev3@gmail.com',
   github: 'https://github.com/trustinraul',
   githubHandle: 'trustinraul',
   linkedin: 'https://www.linkedin.com/in/raul-calvo-sanz-678993416/',
@@ -1081,4 +1081,4 @@ Add P5 to the project history table in `Webdev/CLAUDE.md` once Raúl confirms th
 
 **Placeholder scan:** No "TBD"/"add error handling" left. The CV PDF is an intentional, explicitly-flagged placeholder asset (not a plan gap) with a concrete generation command. LinkedIn/email are real values baked into `lib/site.ts`.
 
-**Type consistency:** `Project` interface (Task 4) is the only shared type; `ProjectRow` (Task 10) consumes exactly those fields (`name`, `
+**Type consistency:** `Project` interface (Task 4) is the only shared type; `ProjectRow` (Task 10) consumes exactly those fields (`name`, `pitch`, `tags`, `demoUrl`, `repoUrl`, `thumbnail`; `accent` retained in data, currently unused by the row — harmless). `site`, `navItems`, `techStack` from `lib/site.ts` (Task 3) are used in Nav/Hero/Contact/Footer; no `metrics` export remains (Metrics component deleted). `Reveal` props (`children`, `variant`, `delay`, `className`) match all call sites (About/Contact use `variant`; Hero and ProjectRow use bespoke inline motion, not `Reveal`).

@@ -76,7 +76,7 @@ Orden vertical, nav sticky con scroll-spy, **jerarquía variada** (no rejillas i
 2. **Hero** — una idea por fold. Headline display grande ("Construyo cosas para internet."), subtítulo específico con la historia, un CTA primario ("Ver el trabajo"). Marquee de stack discreto debajo.
 3. **Sobre** — un párrafo con POV; los números (4 proyectos, 2 meses, de cero) van **dentro de la frase**, sin tiles de métricas.
 4. **Trabajo** — **índice editorial asimétrico** (reemplaza la rejilla 2×2). Cada proyecto es una fila a ancho completo: numeral `01`–`04` en oro, screenshot real grande como protagonista, nombre serif, pitch, tags, links `demo`/`código`. Alterna alineación y varía el espaciado fila a fila. Apila en móvil.
-5. **Contacto** — cierre ("¿Tienes algo en mente?"), `mailto:rcalvosanz@gmail.com`, GitHub (`trustinraul`), LinkedIn (`linkedin.com/in/raul-calvo-sanz-678993416`), botón "Descargar CV".
+5. **Contacto** — cierre ("¿Tienes algo en mente?"), `mailto:raul.webdev3@gmail.com`, GitHub (`trustinraul`), LinkedIn (`linkedin.com/in/raul-calvo-sanz-678993416`), botón "Descargar CV".
 6. **Footer** — mínimo: `raúl calvo · 2026 · Construido con Next.js`.
 
 ---

@@ -16,7 +16,7 @@ export const site = {
   name: 'Raúl Calvo',
   tagline: 'Web developer & builder',
   url: resolveSiteUrl(),
-  email: 'rcalvosanz@gmail.com',
+  email: 'raul.webdev3@gmail.com',
   github: 'https://github.com/trustinraul',
   githubHandle: 'trustinraul',
   linkedin: 'https://www.linkedin.com/in/raul-calvo-sanz-678993416/',

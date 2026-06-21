@@ -105,7 +105,7 @@ Reglas: cada palabra se gana su sitio. Nada de cadencia "frase seria + rebote co
 **Contacto**
 - Headline: **¿Tienes algo en mente?**
 - Sub: **Hago webs y productos para negocios y founders. Lo más rápido es un email.**
-- Acciones: `rcalvosanz@gmail.com` · `GitHub` · `LinkedIn` · `Descargar CV`
+- Acciones: `raul.webdev3@gmail.com` · `GitHub` · `LinkedIn` · `Descargar CV`
 
 **Footer**: `raúl calvo · 2026` · `Construido con Next.js`
 
