@@ -3,7 +3,7 @@ import { Reveal } from './Reveal'
 
 export function Contact() {
   return (
-    <section id="contacto" className="mx-auto max-w-5xl px-6 py-28 sm:py-36">
+    <section id="contacto" className="mx-auto max-w-5xl px-6 py-28 scroll-mt-20 sm:py-36">
       <Reveal variant="lines">
         <h2 className="mb-6 font-display text-[clamp(2.25rem,5vw,4rem)] tracking-[-0.02em] text-balance text-text">
           ¿Tienes algo en mente?

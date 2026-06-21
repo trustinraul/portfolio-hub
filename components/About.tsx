@@ -2,7 +2,7 @@ import { Reveal } from './Reveal'
 
 export function About() {
   return (
-    <section id="sobre" className="mx-auto max-w-3xl px-6 py-24 sm:py-32">
+    <section id="sobre" className="mx-auto max-w-3xl px-6 py-24 scroll-mt-20 sm:py-32">
       <Reveal variant="lines">
         <p className="font-display text-[clamp(1.5rem,3vw,2.25rem)] leading-snug text-pretty text-text">
           Empecé sabiendo algo de Python y nada de desarrollo web. En dos meses construí

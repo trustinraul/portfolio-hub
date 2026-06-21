@@ -31,7 +31,13 @@ export function ProjectRow({ project, index }: { project: Project; index: number
     }
     check()
     window.addEventListener('scroll', check, { passive: true })
-    return () => window.removeEventListener('scroll', check)
+    window.addEventListener('resize', check, { passive: true })
+    window.addEventListener('orientationchange', check, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', check)
+      window.removeEventListener('resize', check)
+      window.removeEventListener('orientationchange', check)
+    }
   }, [])
 
   const hiddenImage = reduce ? { opacity: 0 } : { opacity: 0, clipPath: 'inset(0 0 100% 0)' }
@@ -46,7 +52,7 @@ export function ProjectRow({ project, index }: { project: Project; index: number
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Abrir demo de ${project.name}`}
-        className={`relative block aspect-[16/10] overflow-hidden rounded-lg bg-surface ${imageRight ? 'md:order-2' : ''}`}
+        className={`relative block aspect-video overflow-hidden rounded-lg bg-surface ${imageRight ? 'md:order-2' : ''}`}
         initial={hiddenImage}
         animate={reveal ? shownImage : hiddenImage}
         transition={{ duration: reduce ? 0 : 0.8, ease: EASE }}
