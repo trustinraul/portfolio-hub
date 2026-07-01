@@ -4,21 +4,24 @@ export interface Project {
   pitch: string
   tags: string[]
   demoUrl: string
-  repoUrl: string
+  repoUrl?: string
   thumbnail: string
-  duration: string
+  duration?: string
+  isRealClient?: boolean
+  liveLabel?: string
 }
 
 export const projects: Project[] = [
   {
-    slug: 'kombu',
-    name: 'Kōmbu',
-    pitch: 'Landing dark-premium para un restaurante japonés de autor en Madrid.',
-    tags: ['Next.js', 'Tailwind', 'Framer Motion', 'Resend'],
-    demoUrl: 'https://p1-kombu.vercel.app',
-    repoUrl: 'https://github.com/trustinraul/p1-kombu',
-    thumbnail: '/projects/kombu.png',
-    duration: '4-5 días',
+    slug: 'dilara',
+    name: 'Dilara',
+    pitch:
+      'Web en producción para un salón de belleza en Valladolid. Cliente real de pago: one-pager rápido con captación de citas por WhatsApp, GA4 y SEO local.',
+    tags: ['Next.js', 'Tailwind v4', 'GA4', 'SEO local'],
+    demoUrl: 'https://dilarasalondebelleza.es',
+    thumbnail: '/projects/dilara.png',
+    isRealClient: true,
+    liveLabel: 'Cliente real · En producción',
   },
   {
     slug: 'fortuna',
@@ -49,5 +52,15 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/trustinraul/p4-ingegno',
     thumbnail: '/projects/ingegno.png',
     duration: '3-4 semanas',
+  },
+  {
+    slug: 'kombu',
+    name: 'Kōmbu',
+    pitch: 'Landing dark-premium para un restaurante japonés de autor en Madrid.',
+    tags: ['Next.js', 'Tailwind', 'Framer Motion', 'Resend'],
+    demoUrl: 'https://p1-kombu.vercel.app',
+    repoUrl: 'https://github.com/trustinraul/p1-kombu',
+    thumbnail: '/projects/kombu.png',
+    duration: '4-5 días',
   },
 ]
