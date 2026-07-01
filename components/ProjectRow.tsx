@@ -86,6 +86,20 @@ export function ProjectRow({ project, index }: { project: Project; index: number
           <p className="mt-2 font-mono text-xs text-text-muted">Construido en {project.duration}</p>
         ) : null}
         <p className="mt-4 max-w-md text-base leading-relaxed text-pretty text-text-muted">{project.pitch}</p>
+        {project.metric && (
+          <p className="mt-4 font-display text-2xl text-text">
+            {project.metric.value}{' '}
+            <span className="font-sans text-sm text-text-muted">{project.metric.label}</span>
+          </p>
+        )}
+        {project.testimonial && (
+          <blockquote className="mt-4 max-w-md border-l-2 border-accent/40 pl-4 text-sm italic text-text-muted">
+            “{project.testimonial.quote}”
+            <cite className="mt-1 block not-italic font-mono text-[11px] text-text-faint">
+              — {project.testimonial.author}
+            </cite>
+          </blockquote>
+        )}
         <div className="mt-5 flex flex-wrap gap-2">
           {project.tags.map((t) => (
             <span key={t} className="rounded border border-border px-2 py-0.5 font-mono text-[11px] text-text-faint">

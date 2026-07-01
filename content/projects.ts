@@ -9,6 +9,8 @@ export interface Project {
   duration?: string
   isRealClient?: boolean
   liveLabel?: string
+  testimonial?: { quote: string; author: string }
+  metric?: { value: string; label: string }
 }
 
 export const projects: Project[] = [
@@ -22,6 +24,10 @@ export const projects: Project[] = [
     thumbnail: '/projects/dilara.png',
     isRealClient: true,
     liveLabel: 'Cliente real · En producción',
+    // TODO: rellenar cuando Dilara apruebe la cita
+    // testimonial: { quote: 'PLACEHOLDER_FRASE_DE_DILARA', author: 'Dilara — Salón de Belleza' },
+    // TODO: rellenar con dato real y estable de GA4 (p. ej. clics WhatsApp/mes)
+    // metric: { value: 'PLACEHOLDER_NUMERO', label: 'PLACEHOLDER_QUE_MIDE' },
   },
   {
     slug: 'fortuna',
