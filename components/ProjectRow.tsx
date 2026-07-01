@@ -51,7 +51,7 @@ export function ProjectRow({ project, index }: { project: Project; index: number
         href={project.demoUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`Abrir demo de ${project.name}`}
+        aria-label={`Abrir ${project.isRealClient ? 'la web de' : 'demo de'} ${project.name}`}
         className={`relative block aspect-video overflow-hidden rounded-lg bg-surface ${imageRight ? 'md:order-2' : ''}`}
         initial={hiddenImage}
         animate={reveal ? shownImage : hiddenImage}
@@ -77,7 +77,14 @@ export function ProjectRow({ project, index }: { project: Project; index: number
           {n}
         </span>
         <h3 className="mt-2 font-display text-4xl tracking-[-0.01em] text-text sm:text-5xl">{project.name}</h3>
-        <p className="mt-2 font-mono text-xs text-text-muted">Construido en {project.duration}</p>
+        {project.isRealClient ? (
+          <span className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 font-mono text-[11px] uppercase tracking-wide text-accent">
+            <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
+            {project.liveLabel ?? 'Cliente real'}
+          </span>
+        ) : project.duration ? (
+          <p className="mt-2 font-mono text-xs text-text-muted">Construido en {project.duration}</p>
+        ) : null}
         <p className="mt-4 max-w-md text-base leading-relaxed text-pretty text-text-muted">{project.pitch}</p>
         <div className="mt-5 flex flex-wrap gap-2">
           {project.tags.map((t) => (
@@ -87,8 +94,12 @@ export function ProjectRow({ project, index }: { project: Project; index: number
           ))}
         </div>
         <div className="mt-6 flex gap-6 font-mono text-sm">
-          <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="text-accent underline-offset-4 hover:underline">demo <span aria-hidden="true">↗</span></a>
-          <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="text-text-muted underline-offset-4 hover:text-text hover:underline">código <span aria-hidden="true">↗</span></a>
+          <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="text-accent underline-offset-4 hover:underline">
+            {project.isRealClient ? 'ver web' : 'demo'} <span aria-hidden="true">↗</span>
+          </a>
+          {project.repoUrl && (
+            <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="text-text-muted underline-offset-4 hover:text-text hover:underline">código <span aria-hidden="true">↗</span></a>
+          )}
         </div>
       </motion.div>
     </div>
