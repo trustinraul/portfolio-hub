@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og'
 import { site } from '@/lib/site'
 
 export const runtime = 'edge'
-export const alt = 'Raúl Calvo — Web developer & builder'
+export const alt = 'Raúl Calvo — Webs para negocios de Valladolid'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -31,7 +31,7 @@ export default async function Og() {
           <div style={{ display: 'flex' }}>para internet.</div>
         </div>
         <div style={{ display: 'flex', fontSize: 30, marginTop: 32, color: '#a8a296' }}>
-          {`${site.name} · 4 proyectos en producción`}
+          {`${site.name} · 5 proyectos en producción`}
         </div>
       </div>
     ),

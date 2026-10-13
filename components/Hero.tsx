@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useReducedMotion } from 'framer-motion'
-import { site } from '@/lib/site'
+import { site, whatsappUrl } from '@/lib/site'
 import { StackMarquee } from './StackMarquee'
 
 const HEADLINE = 'Construyo cosas para internet.'
@@ -29,14 +29,23 @@ export function Hero() {
       </h1>
 
       <motion.p
+        className="mb-4 max-w-xl text-lg leading-relaxed text-pretty text-text-muted"
+        initial={reduce ? { opacity: 0 } : { opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: reduce ? 0 : 0.6, delay: reduce ? 0 : 0.1 + words.length * 0.06, ease: EASE }}
+      >
+        Webs para negocios de Valladolid: que te encuentren y te reserven por WhatsApp.
+      </motion.p>
+
+      <motion.p
         className="mb-8 max-w-xl text-lg leading-relaxed text-pretty text-text-muted"
         initial={reduce ? { opacity: 0 } : { opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: reduce ? 0 : 0.6, delay: reduce ? 0 : 0.1 + words.length * 0.06, ease: EASE }}
       >
-        Tengo {site.age} años y en dos meses pasé de no saber HTML a desplegar cuatro
-        proyectos reales: una landing, una web de reservas, un CRM con login y un SaaS
-        multi-tenant.
+        Tengo {site.age} años y en dos meses pasé de no saber HTML a desplegar cinco
+        proyectos reales: una landing, una web de reservas, un CRM con login, un SaaS
+        multi-tenant y la web de un salón de belleza.
       </motion.p>
 
       <motion.div
@@ -48,8 +57,8 @@ export function Hero() {
         <a href="#trabajo" className="rounded-md bg-text px-5 py-2.5 text-sm text-bg transition-opacity hover:opacity-90">
           Ver el trabajo
         </a>
-        <a href="#contacto" className="font-mono text-sm text-text-muted underline-offset-4 transition-colors hover:text-text hover:underline">
-          Escríbeme
+        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="font-mono text-sm text-text-muted underline-offset-4 transition-colors hover:text-text hover:underline">
+          Escríbeme por WhatsApp
         </a>
       </motion.div>
 

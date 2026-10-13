@@ -6,7 +6,7 @@ export function About() {
       <Reveal variant="lines">
         <p className="font-display text-[clamp(1.5rem,3vw,2.25rem)] leading-snug text-pretty text-text">
           Empecé sabiendo algo de Python y nada de desarrollo web. En dos meses construí
-          y desplegué cuatro proyectos, de una landing estática a un SaaS multi-tenant con
+          y desplegué cinco proyectos, de una landing estática a un SaaS multi-tenant con
           autenticación.
         </p>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-pretty text-text-muted">

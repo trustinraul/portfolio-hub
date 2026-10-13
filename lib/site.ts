@@ -26,6 +26,10 @@ export const site = {
   age: 18,
 } as const
 
+// wa.me expects the number in international format, digits only (+34 657 73 13 19).
+export const WHATSAPP_NUMBER = '34657731319'
+export const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola Raúl, he visto tu portfolio y me gustaría hablar de una web para mi negocio.')}`
+
 export const navItems = [
   { id: 'sobre', label: 'sobre' },
   { id: 'trabajo', label: 'trabajo' },

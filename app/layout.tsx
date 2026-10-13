@@ -9,12 +9,12 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jet
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: `${site.name} — Web developer & builder`,
+  title: `${site.name} — Webs para negocios de Valladolid`,
   description:
-    'Portfolio de Raúl Calvo: cuatro proyectos web en producción, de landing estática a SaaS multi-tenant. Next.js, React, Supabase.',
+    'Portfolio de Raúl Calvo: cinco proyectos web en producción, de landing estática a SaaS multi-tenant. Next.js, React, Supabase.',
   openGraph: {
-    title: `${site.name} — Web developer & builder`,
-    description: 'Cuatro proyectos web en producción. Next.js, React, Supabase.',
+    title: `${site.name} — Webs para negocios de Valladolid`,
+    description: 'Cinco proyectos web en producción. Next.js, React, Supabase.',
     url: site.url,
     siteName: site.name,
     locale: 'es_ES',
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${site.name} — Web developer & builder`,
-    description: 'Cuatro proyectos web en producción.',
+    title: `${site.name} — Webs para negocios de Valladolid`,
+    description: 'Cinco proyectos web en producción.',
   },
 }
 
